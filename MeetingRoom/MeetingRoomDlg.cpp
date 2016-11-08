@@ -29,7 +29,7 @@ public:
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
-	
+
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
@@ -42,7 +42,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
-	
+
 END_MESSAGE_MAP()
 
 
@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CMeetingRoomDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_COMMAND(ID_InsertMeetingPlan, &CMeetingRoomDlg::OnInsertmeetingplan)
 END_MESSAGE_MAP()
 
 
@@ -100,6 +101,8 @@ BOOL CMeetingRoomDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO:  在此添加额外的初始化代码
+	m_Menu.LoadMenu(IDR_MENU1);  //  IDR_MENU1为你加入的菜单的ID，在Resource视图的Menu文件夹下可以找到
+	SetMenu(&m_Menu);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -154,3 +157,10 @@ HCURSOR CMeetingRoomDlg::OnQueryDragIcon()
 }
 
 
+
+void CMeetingRoomDlg::OnInsertmeetingplan()
+{
+	// TODO:  在此添加命令处理程序代码
+	Insert insert;
+	insert.DoModal();
+}

@@ -1,7 +1,7 @@
 
 // MeetingRoomDlg.h : м╥нд╪Ч
 //
-
+#include"Insert.h"
 #pragma once
 
 
@@ -29,4 +29,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	CMenu m_Menu;
+	afx_msg void OnInsertmeetingplan();
 };

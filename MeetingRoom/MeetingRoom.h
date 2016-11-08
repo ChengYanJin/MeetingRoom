@@ -27,6 +27,7 @@ public:
 // й╣ож
 
 	DECLARE_MESSAGE_MAP()
+	CMenu m_Menu;
 };
 
 extern CMeetingRoomApp theApp;
