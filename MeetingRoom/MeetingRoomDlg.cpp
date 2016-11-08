@@ -66,6 +66,8 @@ BEGIN_MESSAGE_MAP(CMeetingRoomDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_COMMAND(ID_InsertMeetingPlan, &CMeetingRoomDlg::OnInsertmeetingplan)
+	ON_COMMAND(ID_32771, &CMeetingRoomDlg::OnMeetingRoomInsert)
+	ON_COMMAND(ID_32780, &CMeetingRoomDlg::OnMeetingRoomInfo)
 END_MESSAGE_MAP()
 
 
@@ -163,4 +165,20 @@ void CMeetingRoomDlg::OnInsertmeetingplan()
 	// TODO:  在此添加命令处理程序代码
 	Insert insert;
 	insert.DoModal();
+}
+
+
+void CMeetingRoomDlg::OnMeetingRoomInsert()
+{
+	// TODO:  在此添加命令处理程序代码
+	InsertMeetingRoom insertmeeringroom;
+	insertmeeringroom.DoModal();
+}
+
+
+void CMeetingRoomDlg::OnMeetingRoomInfo()
+{
+	// TODO:  在此添加命令处理程序代码
+	MeetingRoomInfo meetingroominfo;
+	meetingroominfo.DoModal();
 }

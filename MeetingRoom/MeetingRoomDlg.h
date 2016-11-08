@@ -2,6 +2,8 @@
 // MeetingRoomDlg.h : м╥нд╪Ч
 //
 #include"Insert.h"
+#include"InsertMeetingRoom.h"
+#include"MeetingRoomInfo.h"
 #pragma once
 
 
@@ -32,4 +34,6 @@ protected:
 public:
 	CMenu m_Menu;
 	afx_msg void OnInsertmeetingplan();
+	afx_msg void OnMeetingRoomInsert();
+	afx_msg void OnMeetingRoomInfo();
 };

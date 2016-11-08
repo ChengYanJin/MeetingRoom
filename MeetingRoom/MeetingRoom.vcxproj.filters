@@ -36,6 +36,12 @@
     <ClInclude Include="Insert.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="InsertMeetingRoom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MeetingRoomInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MeetingRoom.cpp">
@@ -48,6 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Insert.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="InsertMeetingRoom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MeetingRoomInfo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
