@@ -4,6 +4,7 @@
 #include"Insert.h"
 #include"InsertMeetingRoom.h"
 #include"MeetingRoomInfo.h"
+#include"SearchPlan.h"
 #pragma once
 
 
@@ -36,4 +37,5 @@ public:
 	afx_msg void OnInsertmeetingplan();
 	afx_msg void OnMeetingRoomInsert();
 	afx_msg void OnMeetingRoomInfo();
+	afx_msg void OnSearchmeetingplan();
 };

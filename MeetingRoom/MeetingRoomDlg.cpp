@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CMeetingRoomDlg, CDialogEx)
 	ON_COMMAND(ID_InsertMeetingPlan, &CMeetingRoomDlg::OnInsertmeetingplan)
 	ON_COMMAND(ID_32771, &CMeetingRoomDlg::OnMeetingRoomInsert)
 	ON_COMMAND(ID_32780, &CMeetingRoomDlg::OnMeetingRoomInfo)
+	ON_COMMAND(ID_SearchMeetingPlan, &CMeetingRoomDlg::OnSearchmeetingplan)
 END_MESSAGE_MAP()
 
 
@@ -181,4 +182,12 @@ void CMeetingRoomDlg::OnMeetingRoomInfo()
 	// TODO:  在此添加命令处理程序代码
 	MeetingRoomInfo meetingroominfo;
 	meetingroominfo.DoModal();
+}
+
+
+void CMeetingRoomDlg::OnSearchmeetingplan()
+{
+	// TODO:  在此添加命令处理程序代码
+	SearchPlan searchplan;
+	searchplan.DoModal();
 }
