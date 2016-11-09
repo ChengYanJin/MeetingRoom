@@ -77,7 +77,7 @@ void Insert::OnBnClickedButton1()	//点击确认按钮
 	}
 
 	myFile.Close();
-
+	
 }
 
 

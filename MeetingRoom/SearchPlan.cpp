@@ -83,13 +83,14 @@ void SearchPlan::OnBnClickedButton1()//µã»÷¡¾²éÑ¯¡¿°´Å¥£¬¸ù¾İÈÕÆÚºÍ·¿¼äºÅ£¬²éÕÒÊ
 		AfxExtractSubString(BeginEndTime, strTemp, 2, ' ');
 		AfxExtractSubString(ContactPerson, strTemp, 3, ' ');
 
-		if (Date == DateSearch && RoomNo == RoomNoSearch)
+		if (Date == DateSearch && RoomNo == RoomNoSearch)//Ö¸¶¨ÈÕÆÚºÍ·¿¼äºÅ
 		{
 			m_list.InsertItem(k, NULL);//ÉêÇëÒ»ĞĞÀ´´æ·ÅÊı¾İ K´ú±íÒÑ¾­´æ·ÅµÄÌõÊı
 			m_list.SetItemText(k, 0, RoomNo);//ÉêÇëºó£¬´æ·ÅÊı¾İ
 			m_list.SetItemText(k, 1, Date);
 			m_list.SetItemText(k, 2, BeginEndTime);
 			m_list.SetItemText(k, 3, ContactPerson);
+			k++;////////////////////ĞÂÔö£¡£¡£¡
 		}
 
 	}

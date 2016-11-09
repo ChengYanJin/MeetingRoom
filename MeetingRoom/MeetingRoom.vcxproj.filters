@@ -45,6 +45,12 @@
     <ClInclude Include="SearchPlan.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SearchMeetingRoom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowMeetingRoom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MeetingRoom.cpp">
@@ -66,6 +72,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SearchPlan.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchMeetingRoom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowMeetingRoom.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -43,7 +43,7 @@ void InsertMeetingRoom::OnBnClickedButton1()//点击确认输入
 
 	((CEdit*)this->GetDlgItem(IDC_EDIT1))->GetWindowText(RoomNo);
 	((CEdit*)this->GetDlgItem(IDC_EDIT2))->GetWindowText(numPeople);
-	
+
 	CString meetingPlanFileName = _T("res/file/meetingRoom.txt");
 	CStdioFile myFile;
 
@@ -56,9 +56,10 @@ void InsertMeetingRoom::OnBnClickedButton1()//点击确认输入
 		myFile.SeekToEnd();
 		myFile.WriteString(RoomNo + " " + numPeople +  "\n");
 		MessageBox(TEXT("插入成功！"), NULL, MB_OK);
-		GetDlgItem(IDC_EDIT1)->SetWindowText(_T(""));
+
+		GetDlgItem(IDC_EDIT1)->SetWindowText(_T(""));//将控件信息置为空
 		GetDlgItem(IDC_EDIT2)->SetWindowText(_T(""));
-	
+
 	}
 
 	else

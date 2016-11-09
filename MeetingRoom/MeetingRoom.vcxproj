@@ -107,7 +107,9 @@
     <ClInclude Include="MeetingRoomDlg.h" />
     <ClInclude Include="MeetingRoomInfo.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SearchMeetingRoom.h" />
     <ClInclude Include="SearchPlan.h" />
+    <ClInclude Include="ShowMeetingRoom.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -117,7 +119,9 @@
     <ClCompile Include="MeetingRoom.cpp" />
     <ClCompile Include="MeetingRoomDlg.cpp" />
     <ClCompile Include="MeetingRoomInfo.cpp" />
+    <ClCompile Include="SearchMeetingRoom.cpp" />
     <ClCompile Include="SearchPlan.cpp" />
+    <ClCompile Include="ShowMeetingRoom.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
