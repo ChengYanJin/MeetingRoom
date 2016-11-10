@@ -6,7 +6,6 @@
 #include "MeetingRoomInfo.h"
 #include "afxdialogex.h"
 
-
 // MeetingRoomInfo 对话框
 
 IMPLEMENT_DYNAMIC(MeetingRoomInfo, CDialogEx)
@@ -31,7 +30,8 @@ void MeetingRoomInfo::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(MeetingRoomInfo, CDialogEx)
 	ON_BN_CLICKED(IDOK, &MeetingRoomInfo::OnBnClickedOk)
 	ON_NOTIFY(LVN_ITEMCHANGED, IDC_LIST1, &MeetingRoomInfo::OnLvnItemchangedList1)
-	ON_BN_CLICKED(IDC_BUTTON1, &MeetingRoomInfo::OnBnClickedButton1)
+//	ON_BN_CLICKED(IDC_BUTTON1, &MeetingRoomInfo::OnBnClickedButton1)
+	ON_NOTIFY(NM_CLICK, IDC_LIST1, &MeetingRoomInfo::OnClickList1)
 END_MESSAGE_MAP()
 
 
@@ -109,15 +109,67 @@ void MeetingRoomInfo::OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult)
 }
 
 
-void MeetingRoomInfo::OnBnClickedButton1()//点击删除当前信息
+void MeetingRoomInfo::OnClickList1(NMHDR *pNMHDR, LRESULT *pResult)//填选修改后的信息并在list中点击，点击后消息响应函数
 {
+	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 	// TODO:  在此添加控件通知处理程序代码
-	POSITION p = m_list.GetFirstSelectedItemPosition();    //获取首选中行位置
-	while (p)
-	{
-		int  nSelected = m_list.GetNextSelectedItem(p); //获取选中行的索引
-		m_list.DeleteItem(nSelected); //根据索引删除
-		p = m_list.GetFirstSelectedItemPosition();
+	POSITION ps;
+	CString str;
+	int nIndex, i;
+
+	ps = m_list.GetFirstSelectedItemPosition();
+	nIndex = m_list.GetNextSelectedItem(ps);
+	m_list.SetItemState(nIndex, LVS_EX_FULLROWSELECT, LVS_EX_FULLROWSELECT);
+
+	str = m_list.GetItemText(nIndex, 0) + ' ';//str获得当前所选行的信息
+	for (i = 1; i < 3; i++){
+		str = str + m_list.GetItemText(nIndex, i) + ' ';
 	}
+	str = str + m_list.GetItemText(nIndex, 3);
+
+	try{
+		CString strFileName;//在meetingplan.txt中查找当前所选行信息
+		CString strTemp;
+		CString mRoomNo, mDate, mBeginEndTime, mContact;
+
+		strFileName = _T("res/file/meetingplan.txt");
+
+		((CEdit*)this->GetDlgItem(IDC_EDIT1))->GetWindowText(mRoomNo);
+		((CEdit*)this->GetDlgItem(IDC_EDIT2))->GetWindowText(mDate);
+		((CEdit*)this->GetDlgItem(IDC_EDIT3))->GetWindowText(mBeginEndTime);
+		((CEdit*)this->GetDlgItem(IDC_EDIT4))->GetWindowText(mContact);
+		CString modifystr = mRoomNo + " " + mDate + " " + mBeginEndTime + " " + mContact + '\n';
+		CStdioFile file;
+
+		file.Open(strFileName, CFile::typeText | CFile::modeReadWrite);
+		DWORD dwPos = 0;
+
+		while (file.ReadString(strTemp)){
+			if (strTemp == str){//在文档中找到当前数据
+				dwPos = (DWORD)file.GetPosition() - (_tcslen(str) + _tcslen(_T("\r\n")));
+				break;
+			}
+		}
+
+		file.Close();
+		file.Open(strFileName, CFile::modeWrite);
+		file.Seek(dwPos, CFile::begin);
+		file.WriteString(modifystr);
+		file.Close();
+	}//try
+
+	catch (CException* e)
+	{
+		e->ReportError();
+		e->Delete();
+	}
+
+	MessageBox(TEXT("修改会议室计划成功！"), NULL, MB_OK);
+	GetDlgItem(IDC_EDIT1)->SetWindowText(_T(""));
+	GetDlgItem(IDC_EDIT2)->SetWindowText(_T(""));
+	GetDlgItem(IDC_EDIT3)->SetWindowText(_T(""));
+	GetDlgItem(IDC_EDIT4)->SetWindowText(_T(""));
+
+	*pResult = 0;
 
 }

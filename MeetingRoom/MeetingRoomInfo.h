@@ -25,5 +25,6 @@ public:
 	CListCtrl m_list;
 
 	afx_msg void OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult);
-	afx_msg void OnBnClickedButton1();
+//	afx_msg void OnBnClickedButton1();
+	afx_msg void OnClickList1(NMHDR *pNMHDR, LRESULT *pResult);
 };
